@@ -13,7 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Untitled site',
+  title: 'BMEP — Bihari More Education Project',
+  description:
+    'A student-led education initiative by NIT Durgapur, teaching underprivileged children every Saturday and Sunday.',
 };
 
 export default function RootLayout({

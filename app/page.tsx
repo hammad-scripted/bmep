@@ -1,107 +1,202 @@
-const sidebarWidths = [74, 58, 82, 66, 71, 54];
-const articleWidths = [100, 97, 94, 98, 86];
+import ThemeToggle from './theme-toggle';
+
+const focusAreas = [
+  {
+    number: '01',
+    title: 'Weekend classrooms',
+    text: 'Focused lessons, patient mentoring, and a welcoming place to learn every Saturday and Sunday.',
+  },
+  {
+    number: '02',
+    title: 'Student-led action',
+    text: 'Students of NIT Durgapur turn what they know into time, care, and opportunity for young learners.',
+  },
+  {
+    number: '03',
+    title: 'Learning beyond books',
+    text: 'Community events throughout the year create room for curiosity, confidence, creativity, and joy.',
+  },
+];
+
+const eventTypes = [
+  ['Learning', 'Weekly classes built around strong foundations and individual attention.'],
+  ['Discovery', 'Science, art, culture, and play that help every child stay curious.'],
+  ['Community', 'Seasonal initiatives that bring volunteers, families, and young learners together.'],
+];
+
+function Arrow() {
+  return <span aria-hidden="true">↗</span>;
+}
 
 export default function Home() {
   return (
-    <main className="fixed inset-0 overflow-hidden bg-[#fbfaf8] text-zinc-900">
-      <header
-        aria-hidden="true"
-        className="grid h-[76px] grid-cols-[1fr_auto_1fr] items-center border-b border-stone-200 bg-white/95 px-6 sm:px-14"
-      >
-        <div className="flex items-center gap-3">
-          <span className="h-9 w-9 rounded-full bg-stone-100" />
-          <span className="h-3.5 w-28 rounded-full bg-stone-100" />
-        </div>
-        <span className="hidden h-9 w-[min(30vw,420px)] rounded-xl bg-stone-100 sm:block" />
-        <div className="flex items-center justify-end gap-3">
-          <span className="hidden h-9 w-9 rounded-full bg-stone-100 sm:block" />
-          <span className="h-9 w-24 rounded-xl bg-stone-100" />
+    <main>
+      <header className="site-header">
+        <a className="wordmark" href="#top" aria-label="BMEP home">
+          <span className="wordmark-mark">B</span>
+          <span>
+            <strong>BMEP</strong>
+            <small>Bihari More Education Project</small>
+          </span>
+        </a>
+        <nav className="desktop-nav" aria-label="Primary navigation">
+          <a href="#story">Our story</a>
+          <a href="#work">What we do</a>
+          <a href="#events">Events</a>
+        </nav>
+        <div className="header-actions">
+          <ThemeToggle />
+          <a className="header-cta" href="#join">
+            Join the movement <Arrow />
+          </a>
         </div>
       </header>
 
-      <div
-        aria-hidden="true"
-        className="grid h-[calc(100%-76px)] grid-cols-[180px_minmax(0,1fr)_260px] gap-10 px-6 pb-24 pt-10 opacity-55 max-lg:grid-cols-[150px_minmax(0,1fr)] max-sm:grid-cols-1 sm:px-14"
-      >
-        <aside className="hidden border-r border-stone-200 pr-7 sm:block">
-          <div className="mb-6 h-2.5 w-16 rounded-full bg-stone-200" />
-          <div className="space-y-4">
-            {sidebarWidths.map((width) => (
-              <div key={width} className="flex items-center gap-3">
-                <span className="h-4 w-4 rounded bg-stone-200" />
-                <span
-                  className="h-2.5 rounded-full bg-stone-200"
-                  style={{ width: `${width}%` }}
-                />
-              </div>
-            ))}
-          </div>
-          <div className="mb-6 mt-9 h-2.5 w-24 rounded-full bg-stone-200" />
-          <div className="space-y-4">
-            {sidebarWidths.slice(0, 3).map((width) => (
-              <span
-                key={width}
-                className="block h-2.5 rounded-full bg-stone-200"
-                style={{ width: `${width}%` }}
-              />
-            ))}
-          </div>
-        </aside>
+      <section className="hero" id="top">
+        <div className="issue-line reveal reveal-1">
+          <span>Student-led. Community-powered.</span>
+          <span>NIT Durgapur · West Bengal</span>
+          <span>Every Saturday &amp; Sunday</span>
+        </div>
 
-        <article className="mx-auto flex w-full max-w-3xl flex-col gap-6">
-          <div className="space-y-3">
-            <div className="h-2.5 w-28 rounded-full bg-stone-200" />
-            <div className="h-7 w-4/5 rounded-lg bg-stone-200" />
-            <div className="h-7 w-3/5 rounded-lg bg-stone-200" />
-          </div>
-          <div className="min-h-[240px] flex-1 rounded-2xl bg-stone-200" />
-          <div className="flex items-center gap-3">
-            <span className="h-9 w-9 rounded-full bg-stone-200" />
-            <span className="h-2.5 w-28 rounded-full bg-stone-200" />
-          </div>
-          <div className="space-y-2">
-            {articleWidths.map((width) => (
-              <span
-                key={width}
-                className="block h-2.5 rounded-full bg-stone-200"
-                style={{ width: `${width}%` }}
-              />
-            ))}
-          </div>
-        </article>
+        <div className="hero-heading reveal reveal-2">
+          <p className="kicker">The weekend edition</p>
+          <h1>
+            Every child deserves
+            <em> more.</em>
+          </h1>
+        </div>
 
-        <aside className="space-y-5 max-lg:hidden">
-          {[0, 1].map((card) => (
-            <div
-              key={card}
-              className="space-y-4 rounded-2xl border border-stone-200 bg-white/70 p-6"
-            >
-              <span className="block h-10 w-10 rounded-full bg-stone-200" />
-              <span className="block h-3 w-3/5 rounded-full bg-stone-200" />
-              <span className="block h-2.5 w-full rounded-full bg-stone-200" />
-              <span className="block h-2.5 w-4/5 rounded-full bg-stone-200" />
-              <span className="block h-8 w-24 rounded-lg bg-stone-200" />
+        <div className="hero-grid reveal reveal-3">
+          <aside className="hero-note">
+            <p>Our classroom opens</p>
+            <strong>09:00</strong>
+            <span>AM</span>
+            <div className="vertical-rule" />
+            <p>and the learning continues until noon.</p>
+          </aside>
+
+          <div className="hero-feature" aria-label="An abstract illustration of a weekend classroom">
+            <div className="sun-disc" />
+            <div className="chalkboard">
+              <span>learn</span>
+              <i>+</i>
+              <span>grow</span>
             </div>
-          ))}
-        </aside>
-      </div>
+            <div className="student student-one"><span /></div>
+            <div className="student student-two"><span /></div>
+            <div className="student student-three"><span /></div>
+            <p className="feature-caption">A small room can hold a world of possibility.</p>
+          </div>
 
-      <section
-        role="status"
-        aria-live="polite"
-        aria-atomic="true"
-        className="absolute left-1/2 top-[clamp(96px,13vh,122px)] w-[min(620px,calc(100%-40px))] -translate-x-1/2 rounded-[18px] border border-stone-200 bg-white/95 px-5 py-5 shadow-[0_18px_50px_rgb(24_24_27/9%)] backdrop-blur-sm"
-      >
-        <p className="mb-1 text-[11px] font-semibold uppercase tracking-[0.09em] text-stone-500">
-          Building your site
-        </p>
-        <h1 className="text-xl font-semibold tracking-tight">
-          Your site is taking shape
-        </h1>
-        <p className="mt-1 text-sm text-stone-500">
-          Your first version will appear here automatically when it’s ready.
-        </p>
+          <div className="hero-copy">
+            <p className="drop-cap">
+              On weekends, students from NIT Durgapur become teachers, mentors, and
+              cheerleaders for children who deserve a fair chance to learn.
+            </p>
+            <p>
+              BMEP is a student-run education initiative creating consistent,
+              joyful learning experiences for underprivileged children.
+            </p>
+            <a className="text-link" href="#story">Read our story <Arrow /></a>
+          </div>
+        </div>
+
+        <div className="news-ticker" aria-label="Programme schedule">
+          <strong>Classroom bulletin</strong>
+          <div className="ticker-track">
+            <span>Saturday · 9 AM—12 PM</span>
+            <i>◆</i>
+            <span>Sunday · 9 AM—12 PM</span>
+            <i>◆</i>
+            <span>Learning with dignity, every weekend</span>
+          </div>
+        </div>
       </section>
+
+      <section className="manifesto section-wrap" id="story">
+        <div className="section-label"><span>Our point of view</span><span>Editorial / 01</span></div>
+        <div className="manifesto-grid">
+          <h2>Potential is everywhere.<br />Opportunity should be too.</h2>
+          <div className="manifesto-copy">
+            <p>
+              Education is more than a lesson. It is the confidence to ask a
+              question, the courage to imagine a different future, and the support
+              to keep going.
+            </p>
+            <p>
+              That belief brings our volunteers and learners together every week—
+              and carries into every event we organise through the year.
+            </p>
+          </div>
+        </div>
+        <div className="facts" aria-label="BMEP programme facts">
+          <div><strong>02</strong><span>Days every weekend</span></div>
+          <div><strong>06</strong><span>Learning hours weekly</span></div>
+          <div><strong>01</strong><span>Growing community</span></div>
+        </div>
+      </section>
+
+      <section className="work-section section-wrap" id="work">
+        <div className="section-label section-label-light"><span>How we show up</span><span>The brief / 02</span></div>
+        <div className="work-intro">
+          <p className="kicker">More than a class</p>
+          <h2>Consistency creates<br /><em>confidence.</em></h2>
+        </div>
+        <div className="focus-list">
+          {focusAreas.map((area) => (
+            <article key={area.number}>
+              <span>{area.number}</span>
+              <h3>{area.title}</h3>
+              <p>{area.text}</p>
+              <i aria-hidden="true">↗</i>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="events section-wrap" id="events">
+        <div className="section-label"><span>Throughout the year</span><span>Field notes / 03</span></div>
+        <div className="events-heading">
+          <h2>Big days.<br /><em>Bright minds.</em></h2>
+          <p>
+            Our calendar stretches beyond the weekend classroom with experiences
+            that make learning social, expressive, and memorable.
+          </p>
+        </div>
+        <div className="event-grid">
+          {eventTypes.map(([title, description], index) => (
+            <article key={title}>
+              <div className={`event-art event-art-${index + 1}`}>
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <b>{title}</b>
+              </div>
+              <h3>{title}</h3>
+              <p>{description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="join" id="join">
+        <p className="kicker">The next edition needs you</p>
+        <h2>Bring an hour.<br />Leave an impact.</h2>
+        <p>
+          Teach, organise, document, design, or simply show up. There is always
+          a way to make the circle wider.
+        </p>
+        <a href="#contact">I want to help <Arrow /></a>
+        <div className="join-stamp" aria-hidden="true">BMEP<br /><span>Weekend<br />School</span></div>
+      </section>
+
+      <footer id="contact">
+        <div className="footer-brand">
+          <span className="wordmark-mark">B</span>
+          <div><strong>Bihari More Education Project</strong><p>Run by the students of NIT Durgapur.</p></div>
+        </div>
+        <p className="footer-note">Contact and social links will be added with the next project update.</p>
+        <a href="#top">Back to top ↑</a>
+      </footer>
     </main>
   );
 }
