@@ -1,4 +1,4 @@
-import ThemeToggle from './theme-toggle';
+import { Arrow, SiteFooter, SiteHeader } from './site-shell';
 
 const focusAreas = [
   {
@@ -24,33 +24,10 @@ const eventTypes = [
   ['Community', 'Seasonal initiatives that bring volunteers, families, and young learners together.'],
 ];
 
-function Arrow() {
-  return <span aria-hidden="true">↗</span>;
-}
-
 export default function Home() {
   return (
     <main>
-      <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="BMEP home">
-          <span className="wordmark-mark">B</span>
-          <span>
-            <strong>BMEP</strong>
-            <small>Bihari More Education Project</small>
-          </span>
-        </a>
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          <a href="#story">Our story</a>
-          <a href="#work">What we do</a>
-          <a href="#events">Events</a>
-        </nav>
-        <div className="header-actions">
-          <ThemeToggle />
-          <a className="header-cta" href="#join">
-            Join the movement <Arrow />
-          </a>
-        </div>
-      </header>
+      <SiteHeader />
 
       <section className="hero" id="top">
         <div className="issue-line reveal reveal-1">
@@ -98,7 +75,7 @@ export default function Home() {
               BMEP is a student-run education initiative creating consistent,
               joyful learning experiences for underprivileged children.
             </p>
-            <a className="text-link" href="#story">Read our story <Arrow /></a>
+            <a className="text-link" href="/about">Read our story <Arrow /></a>
           </div>
         </div>
 
@@ -176,6 +153,9 @@ export default function Home() {
             </article>
           ))}
         </div>
+        <a className="events-archive-link" href="/events">
+          Explore the complete event archive <Arrow />
+        </a>
       </section>
 
       <section className="join" id="join">
@@ -189,14 +169,7 @@ export default function Home() {
         <div className="join-stamp" aria-hidden="true">BMEP<br /><span>Weekend<br />School</span></div>
       </section>
 
-      <footer id="contact">
-        <div className="footer-brand">
-          <span className="wordmark-mark">B</span>
-          <div><strong>Bihari More Education Project</strong><p>Run by the students of NIT Durgapur.</p></div>
-        </div>
-        <p className="footer-note">Contact and social links will be added with the next project update.</p>
-        <a href="#top">Back to top ↑</a>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
