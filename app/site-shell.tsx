@@ -1,4 +1,5 @@
 import ThemeToggle from './theme-toggle';
+import MobileNav from './mobile-nav';
 
 export function Arrow() {
   return <span aria-hidden="true">↗</span>;
@@ -25,6 +26,7 @@ export function SiteHeader({ active }: { active?: 'about' | 'events' | 'team' })
         <a className="header-cta" href="/#join">
           Join the movement <Arrow />
         </a>
+        <MobileNav active={active} />
       </div>
     </header>
   );

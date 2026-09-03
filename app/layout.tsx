@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import CursorHalo from './cursor-halo';
+import SiteLoader from './site-loader';
 import './globals.css';
 
 const geistSans = Geist({
@@ -43,6 +44,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <SiteLoader />
         <CursorHalo />
         {children}
       </body>
