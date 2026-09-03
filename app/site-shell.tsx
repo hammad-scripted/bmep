@@ -4,7 +4,7 @@ export function Arrow() {
   return <span aria-hidden="true">↗</span>;
 }
 
-export function SiteHeader({ active }: { active?: 'about' | 'events' }) {
+export function SiteHeader({ active }: { active?: 'about' | 'events' | 'team' }) {
   return (
     <header className="site-header">
       <a className="wordmark" href="/" aria-label="BMEP home">
@@ -17,6 +17,7 @@ export function SiteHeader({ active }: { active?: 'about' | 'events' }) {
       <nav className="desktop-nav" aria-label="Primary navigation">
         <a className={active === 'about' ? 'active' : undefined} href="/about">Our story</a>
         <a href="/#work">What we do</a>
+        <a className={active === 'team' ? 'active' : undefined} href="/team">Our team</a>
         <a className={active === 'events' ? 'active' : undefined} href="/events">Events</a>
       </nav>
       <div className="header-actions">
