@@ -313,6 +313,7 @@ export default function TeamExplorer() {
 
       <div
         className="batch-panel section-wrap"
+        key={activeBatch}
         id={`batch-panel-${activeBatch}`}
         role="tabpanel"
         aria-labelledby={`batch-tab-${activeBatch}`}
