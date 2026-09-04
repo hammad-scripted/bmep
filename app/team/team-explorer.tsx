@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, type CSSProperties, type KeyboardEvent } from 'react';
+import { sitePath } from '../site-paths';
 
 type Member = {
   name: string;
@@ -153,12 +154,13 @@ function Portrait({ member }: { member: Member }) {
   if (member.photo) {
     return (
       <span className="team-avatar">
-        <img src={member.photo} alt={`Portrait of ${member.name}`} loading="lazy" />
+        <img src={sitePath(member.photo)} alt={`Portrait of ${member.name}`} loading="lazy" />
       </span>
     );
   }
 
   const style = {
+    backgroundImage: `url("${sitePath('/team/office-bearers-2026.jpeg')}")`,
     backgroundPosition: member.collagePosition,
   } as CSSProperties;
 

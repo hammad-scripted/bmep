@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 
 export default function ThemeToggle() {
   const [isDark, setIsDark] = useState(false);
-  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     const savedTheme = window.localStorage.getItem('bmep-theme');
@@ -12,15 +11,15 @@ export default function ThemeToggle() {
     const useDark = savedTheme ? savedTheme === 'dark' : prefersDark;
 
     document.documentElement.dataset.theme = useDark ? 'dark' : 'light';
-    setIsDark(useDark);
-    setIsReady(true);
+    const frame = window.requestAnimationFrame(() => setIsDark(useDark));
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   function toggleTheme() {
-    const nextTheme = isDark ? 'light' : 'dark';
+    const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
     document.documentElement.dataset.theme = nextTheme;
     window.localStorage.setItem('bmep-theme', nextTheme);
-    setIsDark(!isDark);
+    setIsDark(nextTheme === 'dark');
   }
 
   return (
@@ -32,7 +31,7 @@ export default function ThemeToggle() {
       aria-pressed={isDark}
       title={isDark ? 'Light mode' : 'Dark mode'}
     >
-      <span aria-hidden="true">{isReady && isDark ? '☀' : '◐'}</span>
+      <span aria-hidden="true">{isDark ? '☀' : '◐'}</span>
     </button>
   );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import CursorHalo from './cursor-halo';
 import SiteLoader from './site-loader';
+import { sitePath } from './site-paths';
 import './globals.css';
 
 const geistSans = Geist({
@@ -18,19 +19,23 @@ const siteOrigin = process.env.SITE_ORIGIN ?? 'http://localhost:3000';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin),
+  icons: {
+    icon: [{ url: sitePath('/favicon.svg'), type: 'image/svg+xml' }],
+    shortcut: sitePath('/favicon.svg'),
+  },
   title: 'BMEP — Bihari More Education Project',
   description:
     'A student-led education initiative by NIT Durgapur, teaching underprivileged children every Saturday and Sunday.',
   openGraph: {
     title: 'Every child deserves more. — BMEP',
     description: 'Bihari More Education Project · NIT Durgapur',
-    images: [{ url: new URL('/og.png', siteOrigin), width: 1200, height: 630, alt: 'BMEP students and volunteers learning together' }],
+    images: [{ url: new URL(sitePath('/og.png'), siteOrigin), width: 1200, height: 630, alt: 'BMEP students and volunteers learning together' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Every child deserves more. — BMEP',
     description: 'Bihari More Education Project · NIT Durgapur',
-    images: [new URL('/og.png', siteOrigin)],
+    images: [new URL(sitePath('/og.png'), siteOrigin)],
   },
 };
 

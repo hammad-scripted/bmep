@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { SiteFooter, SiteHeader } from '../site-shell';
+import { sitePath } from '../site-paths';
 import TeamExplorer from './team-explorer';
 
 export const metadata: Metadata = {
@@ -31,7 +32,7 @@ export default function TeamPage() {
           </div>
           <figure className="team-board">
             <img
-              src="/team/office-bearers-2026.jpeg"
+              src={sitePath('/team/office-bearers-2026.jpeg')}
               alt="BMEP office bearers for 2026, showing all members with their designations"
             />
             <figcaption>

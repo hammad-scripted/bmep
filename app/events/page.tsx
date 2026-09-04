@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Arrow, SiteFooter, SiteHeader } from '../site-shell';
+import { sitePath } from '../site-paths';
 
 export const metadata: Metadata = {
   title: 'Events — BMEP',
@@ -133,7 +134,7 @@ export default function EventsPage() {
         <div className="overview-mosaic" aria-label="A selection of photographs from BMEP events">
           {overviewImages.map(([src, alt], index) => (
             <figure key={src} className={`overview-photo overview-photo-${index + 1}`}>
-              <img src={src} alt={alt} />
+              <img src={sitePath(src)} alt={alt} />
             </figure>
           ))}
         </div>
@@ -158,7 +159,7 @@ export default function EventsPage() {
             <div className="event-photo-pair">
               {event.images.map((src, index) => (
                 <figure key={src} className={`event-photo event-photo-${index + 1}`}>
-                  <img src={src} alt={event.alts[index]} loading="lazy" decoding="async" />
+                  <img src={sitePath(src)} alt={event.alts[index]} loading="lazy" decoding="async" />
                   <figcaption>{event.title} · {String(index + 1).padStart(2, '0')}</figcaption>
                 </figure>
               ))}
@@ -179,7 +180,7 @@ export default function EventsPage() {
       <section className="events-closing">
         <p className="kicker">The story keeps moving</p>
         <h2>Every event is another<br />way to <em>believe.</em></h2>
-        <a href="/about">Discover how BMEP began <Arrow /></a>
+        <a href={sitePath('/about')}>Discover how BMEP began <Arrow /></a>
       </section>
       <SiteFooter />
     </main>

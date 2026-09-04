@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Arrow, SiteFooter, SiteHeader } from '../site-shell';
+import { sitePath } from '../site-paths';
 
 export const metadata: Metadata = {
   title: 'How BMEP Was Made — BMEP',
@@ -95,7 +96,7 @@ export default function AboutPage() {
         <div className="this-is-bmep">
           <p className="kicker">This is BMEP</p>
           <h2>A small step towards making education a little more accessible, <em>one child at a time.</em></h2>
-          <a href="/events">See BMEP in action <Arrow /></a>
+          <a href={sitePath('/events')}>See BMEP in action <Arrow /></a>
         </div>
       </section>
       <SiteFooter />

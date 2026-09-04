@@ -1,4 +1,5 @@
 import { Arrow, SiteFooter, SiteHeader } from './site-shell';
+import { sitePath } from './site-paths';
 
 const focusAreas = [
   {
@@ -27,7 +28,7 @@ const eventTypes = [
 export default function Home() {
   return (
     <main>
-      <SiteHeader />
+      <SiteHeader active="home" />
 
       <section className="hero" id="top">
         <div className="issue-line reveal reveal-1">
@@ -75,7 +76,7 @@ export default function Home() {
               BMEP is a student-run education initiative creating consistent,
               joyful learning experiences for underprivileged children.
             </p>
-            <a className="text-link" href="/about">Read our story <Arrow /></a>
+            <a className="text-link" href={sitePath('/about')}>Read our story <Arrow /></a>
           </div>
         </div>
 
@@ -153,7 +154,7 @@ export default function Home() {
             </article>
           ))}
         </div>
-        <a className="events-archive-link" href="/events">
+        <a className="events-archive-link" href={sitePath('/events')}>
           Explore the complete event archive <Arrow />
         </a>
       </section>
@@ -165,7 +166,7 @@ export default function Home() {
           Teach, organise, document, design, or simply show up. There is always
           a way to make the circle wider.
         </p>
-        <a href="#contact">I want to help <Arrow /></a>
+        <a href={sitePath('/join')}>I want to help <Arrow /></a>
         <div className="join-stamp" aria-hidden="true">BMEP<br /><span>Weekend<br />School</span></div>
       </section>
 
