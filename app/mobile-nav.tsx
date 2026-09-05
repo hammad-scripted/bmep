@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { sitePath } from './site-paths';
 
-type ActivePage = 'home' | 'about' | 'events' | 'team' | 'join';
+type ActivePage = 'home' | 'about' | 'events' | 'team' | 'join' | 'donate';
 
 const links: Array<{
   href: string;
@@ -16,6 +16,7 @@ const links: Array<{
   { href: '/#work', label: 'What we do', index: '03' },
   { href: '/team', label: 'Our team', index: '04', page: 'team' },
   { href: '/events', label: 'Events', index: '05', page: 'events' },
+  { href: '/donate', label: 'Donate', index: '06', page: 'donate' },
 ];
 
 export default function MobileNav({ active }: { active?: ActivePage }) {
@@ -73,7 +74,7 @@ export default function MobileNav({ active }: { active?: ActivePage }) {
       >
         <div className="mobile-menu-heading">
           <span>Explore BMEP</span>
-          <span>Menu / 05</span>
+          <span>Menu / 06</span>
         </div>
         <nav className="mobile-menu-links" aria-label="Mobile navigation">
           {links.map((link) => {
