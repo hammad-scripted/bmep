@@ -25,6 +25,12 @@ const eventTypes = [
   ['Community', 'Seasonal initiatives that bring volunteers, families, and young learners together.'],
 ];
 
+const bulletinItems = [
+  'Saturday · 9 AM—12 PM',
+  'Sunday · 9 AM—12 PM',
+  'Learning with dignity, every weekend',
+];
+
 export default function Home() {
   return (
     <main>
@@ -83,11 +89,16 @@ export default function Home() {
         <div className="news-ticker" aria-label="Programme schedule">
           <strong>Classroom bulletin</strong>
           <div className="ticker-track">
-            <span>Saturday · 9 AM—12 PM</span>
-            <i>◆</i>
-            <span>Sunday · 9 AM—12 PM</span>
-            <i>◆</i>
-            <span>Learning with dignity, every weekend</span>
+            {[0, 1].map((cycle) => (
+              <span className="ticker-cycle" key={cycle} aria-hidden={cycle === 1 ? 'true' : undefined}>
+                {bulletinItems.map((item) => (
+                  <span className="ticker-item" key={item}>
+                    <span>{item}</span>
+                    <i aria-hidden="true">◆</i>
+                  </span>
+                ))}
+              </span>
+            ))}
           </div>
         </div>
       </section>
