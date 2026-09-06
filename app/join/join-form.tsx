@@ -20,6 +20,8 @@ const departments = [
   'Other / Interdisciplinary',
 ];
 
+const admissionYears = ['2025', '2026', '2027', '2028', '2029', '2030 or later'];
+
 export default function JoinForm() {
   const [prepared, setPrepared] = useState(false);
 
@@ -35,6 +37,7 @@ export default function JoinForm() {
       `Email: ${form.get('email')}`,
       `Phone: ${form.get('phone')}`,
       `Academic department: ${form.get('department')}`,
+      `Admission year / batch: ${form.get('admissionYear')}`,
     ].join('\n');
 
     const mailto = new URL('mailto:bmep.dgp@gmail.com');
@@ -75,15 +78,27 @@ export default function JoinForm() {
         </label>
       </div>
 
-      <label>
-        <span>Academic department</span>
-        <select name="department" defaultValue="" required>
-          <option value="" disabled>Select your department</option>
-          {departments.map((department) => (
-            <option key={department} value={department}>{department}</option>
-          ))}
-        </select>
-      </label>
+      <div className="form-row">
+        <label>
+          <span>Academic department</span>
+          <select name="department" defaultValue="" required>
+            <option value="" disabled>Select your department</option>
+            {departments.map((department) => (
+              <option key={department} value={department}>{department}</option>
+            ))}
+          </select>
+        </label>
+
+        <label>
+          <span>Admission year / batch</span>
+          <select name="admissionYear" defaultValue="" required>
+            <option value="" disabled>Select your year</option>
+            {admissionYears.map((year) => (
+              <option key={year} value={year}>{year}</option>
+            ))}
+          </select>
+        </label>
+      </div>
 
       <p className="form-privacy">
         Submitting prepares an email to BMEP. Your details are not stored by this website.
