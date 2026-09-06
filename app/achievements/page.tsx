@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Arrow, SiteFooter, SiteHeader } from '../site-shell';
 import { sitePath } from '../site-paths';
 
@@ -23,6 +24,8 @@ const widerAchievements = [
     text: 'Students take their learning into public view at Tech Mela, presenting projects and explaining ideas to visitors.',
     image: '/achievements/tech-mela.jpg',
     alt: 'BMEP children presenting a solar-system project to visitors at Tech Mela',
+    width: 1639,
+    height: 1229,
   },
   {
     number: '02',
@@ -31,6 +34,8 @@ const widerAchievements = [
     text: 'Performances at Aarohan give children room to express themselves, work as a team, and experience a larger stage.',
     image: '/achievements/aarohan-stage.jpg',
     alt: 'BMEP children performing a dance on the Aarohan stage',
+    width: 960,
+    height: 540,
   },
   {
     number: '03',
@@ -39,6 +44,8 @@ const widerAchievements = [
     text: 'Annual medical and sanitation camps connect children and families with general check-ups and health awareness.',
     image: '/achievements/medical-camp.jpg',
     alt: 'Volunteers and healthcare partners at a BMEP medical camp',
+    width: 1120,
+    height: 840,
   },
 ];
 
@@ -76,10 +83,13 @@ export default function AchievementsPage() {
         </div>
 
         <figure className="achievements-hero-photo reveal reveal-3">
-          <img
+          <Image
             src={sitePath('/achievements/community-gathering.jpg')}
             alt="A large gathering of BMEP children, volunteers, and community members"
-            decoding="async"
+            width={1613}
+            height={1210}
+            sizes="(max-width: 640px) 100vw, 90vw"
+            priority
           />
           <figcaption>
             <span>A growing learning community</span>
@@ -145,11 +155,13 @@ export default function AchievementsPage() {
           {widerAchievements.map((achievement) => (
             <article key={achievement.title}>
               <figure>
-                <img
+                <Image
                   src={sitePath(achievement.image)}
                   alt={achievement.alt}
+                  width={achievement.width}
+                  height={achievement.height}
+                  sizes="(max-width: 640px) 100vw, (max-width: 960px) 50vw, 33vw"
                   loading="lazy"
-                  decoding="async"
                 />
                 <figcaption>{achievement.number} / 03</figcaption>
               </figure>
