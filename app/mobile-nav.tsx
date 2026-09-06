@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { sitePath } from './site-paths';
 
-type ActivePage = 'home' | 'about' | 'events' | 'team' | 'join' | 'donate';
+type ActivePage = 'home' | 'about' | 'achievements' | 'events' | 'team' | 'join' | 'donate';
 
 const links: Array<{
   href: string;
@@ -14,9 +14,10 @@ const links: Array<{
   { href: '/', label: 'Home', index: '01', page: 'home' },
   { href: '/about', label: 'Our story', index: '02', page: 'about' },
   { href: '/#work', label: 'What we do', index: '03' },
-  { href: '/team', label: 'Our team', index: '04', page: 'team' },
-  { href: '/events', label: 'Events', index: '05', page: 'events' },
-  { href: '/donate', label: 'Donate', index: '06', page: 'donate' },
+  { href: '/achievements', label: 'Results', index: '04', page: 'achievements' },
+  { href: '/team', label: 'Our team', index: '05', page: 'team' },
+  { href: '/events', label: 'Events', index: '06', page: 'events' },
+  { href: '/donate', label: 'Donate', index: '07', page: 'donate' },
 ];
 
 export default function MobileNav({ active }: { active?: ActivePage }) {
@@ -74,7 +75,7 @@ export default function MobileNav({ active }: { active?: ActivePage }) {
       >
         <div className="mobile-menu-heading">
           <span>Explore BMEP</span>
-          <span>Menu / 06</span>
+          <span>Menu / 07</span>
         </div>
         <nav className="mobile-menu-links" aria-label="Mobile navigation">
           {links.map((link) => {
